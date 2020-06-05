@@ -1,3 +1,6 @@
+#This code is created by Roshan to decrypt Cisco Level 7 Passwords. 
+#For the logic of the algorythm visit https://practicalnetstuff.blogspot.com/2020/06/writing-python-script-to-decrypt-cisco.html
+
 cipher = input("Enter the Cipher: ")
 
 cipher_hexa_list = list([int(cipher[i:i+2], 16) for i in range(0,len(cipher),2)])
