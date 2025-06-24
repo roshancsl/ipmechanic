@@ -1,0 +1,16 @@
+import json
+from scrapli.driver.core import IOSXEDriver
+
+MY_DEVICE = {
+    "host": "192.168.1.13",
+    "auth_username": "roshan",
+    "auth_password": "cisco",
+    "auth_secondary":"cisco123",
+    "auth_strict_key": False,
+    "ssh_config_file":True,
+    }
+
+with IOSXEDriver(**MY_DEVICE) as conn:
+    response = conn.send_command("show version")
+    structured_result = json.dumps(response.textfsm_parse_output(),indent=2)
+print(structured_result)
