@@ -1,3 +1,4 @@
+
 from napalm import get_network_driver
 
 DEVICES =[{
@@ -11,5 +12,7 @@ DEVICES =[{
 for dev in DEVICES:
     driver = get_network_driver(dev["driver"])
     with driver(username=dev["username"],password=dev["password"],hostname=dev["hostname"]) as device:
-        result = device.get_interfaces()
+        result = device.get_facts()
     print(result)
+
+
