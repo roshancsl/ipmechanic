@@ -1,0 +1,15 @@
+from napalm import get_network_driver
+
+DEVICES =[{
+    "hostname":"192.168.1.13",
+    "username":"roshan",
+    "password":"cisco",
+    "driver":"ios",
+},
+]
+
+for dev in DEVICES:
+    driver = get_network_driver(dev["driver"])
+    with driver(username=dev["username"],password=dev["password"],hostname=dev["hostname"]) as device:
+        result = device.get_interfaces()
+    print(result)
